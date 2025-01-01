@@ -1,5 +1,4 @@
 @startuml Participants
-!include https://rcaschultz.github.io/StyleTemplate.puml
 
 /'
 <style>
