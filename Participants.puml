@@ -1,0 +1,1241 @@
+@startuml Participants
+!include StyleTemplate.puml
+
+/'
+<style>
+    legend {
+    FontSize 30
+    BackGroundColor white
+    Margin 10
+    Padding 10
+    }
+</style>
+
+legend top
+Test
+---
+Test #red
+---
+end legend
+'/
+
+!startsub ACHNetwork
+box $colorTreasury
+participant ACHNetwork [
+=<$document> 
+=ACH Network
+NACHA
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub AEM
+box $colorDEX
+participant AEM [
+=<$on_premises_server> 
+=Enterprise 
+=Manager (AEM)
+Adobe
+----
+DEX
+]
+end box
+!endsub
+
+!startsub AESAuctionConductor
+box $colorAM
+participant AESAuctionConductor [
+=<$cloud> 
+=Auction
+=Conductor
+Auction & Event Solutions
+----
+AM
+]
+end box
+!endsub
+
+!startsub AESTicketSales
+box $colorAM
+participant AESTicketSales [
+=<$cloud> 
+=Ticket
+=Sales
+Auction & Event Solutions
+----
+AM
+]
+end box
+!endsub
+
+!startsub AESBulkLoad
+box $colorAM
+participant AESBulkLoad [
+=<$application_generic> 
+=AES Bulk
+=Load
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+!startsub AESHTTPPushAPI
+box $colorAM
+participant AESHTTPPushAPI [
+=<$web_services> 
+=AES HTTP
+=Push API
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+!startsub AESImportQueue
+box $colorDOC
+participant AESImportQueue [
+=<$application_generic> 
+=AES Import 
+=Queue
+=<font size=10>(Service Broker)
+ALSAC
+----
+DOC
+]
+end box
+!endsub
+
+
+!startsub AESImport
+box $colorAM
+participant AESImport [
+=<$application_generic> 
+=AES
+=Import
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+!startsub OIM
+box $colorAM
+participant OIM [
+=<$application_generic> 
+=Order Item
+=Manager
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+
+!startsub EventCentral
+box $colorAM
+participant EventCentral [
+=<$application_generic> 
+=Event
+=Central
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+
+!startsub EventMaster
+box $colorAM
+participant EventMaster [
+=<$application_generic> 
+=Event
+=Master
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+
+!startsub DGGLeafApp
+box $colorAM
+participant DGGLeafApp [
+=<$application_generic> 
+=DGG Leaf
+=Application
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+!startsub AESCache
+box $colorAM
+participant AESCache [
+=<$application_generic> 
+=AES
+=Cache
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+
+!startsub AESErrorResolutionUI
+box $colorAM
+participant AESErrorResolutionUI [
+=<$application_generic> 
+=AES Error
+=Resolution UI
+ALSAC
+----
+AM
+]
+end box
+!endsub
+
+
+!startsub RTPQueue
+box $colorDOC
+participant RTPQueue [
+=<$application_generic> 
+=RTP Queue
+=<font size=10>(Service Broker)
+ALSAC
+----
+DOC
+]
+end box
+!endsub
+
+
+!startsub ALSACPAY
+box $colorTRP
+participant ALSACPAY [
+=<$web_services> 
+=ALSAC Pay 
+=API
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+!startsub AMEX
+box $colorTreasury
+participant AMEX [
+=<$credit_card> 
+=American 
+=Express
+American Express
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub APG
+box $colorTRP
+participant APG [
+=<$web_services> 
+=Payment
+=Gateway
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+!startsub Browser
+box #fd8b8b
+participant Browser [
+=<$website>
+=Web 
+=Browser
+----
+Donor
+]
+end box
+!endsub
+
+!startsub C360
+box $colorTRP
+participant C360 [
+=<$web_services> 
+=C360
+=Service
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+
+!startsub C360Gateway
+box $colorDEX
+participant C360Gateway [
+=<$web_services> 
+=C360 Gateway
+=Service
+ALSAC
+----
+DEX
+]
+end box
+!endsub
+
+!startsub CardNetwork
+box $colorTreasury
+participant CardNetwork [
+=<$credit_card> 
+=Card
+=Network
+Visa, Mastercard, Discover
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub ChargeSelection
+box $colorBIRT
+participant ChargeSelection [
+=<$application_generic> 
+=Charge Selection
+=Select Donors to Charge
+ALSAC
+----
+BIRT
+]
+end box
+!endsub
+
+!startsub ChargeBroker
+box $colorBIRT
+participant ChargeBroker [
+=<$application_generic> 
+=Charge Broker
+=Process Charges
+ALSAC
+----
+BIRT
+]
+end box
+!endsub
+
+!startsub ControlM
+box $colorRELY
+participant ControlM [
+=<$hybrid_server> 
+=Control-M
+BMC
+----
+RELY
+]
+end box
+!endsub
+
+
+!startsub Confluent
+box $colorDOC
+participant Confluent [
+=<$hybrid_server> 
+=Confluent
+=Streaming
+Confluent, Inc.
+----
+DOC
+]
+end box
+!endsub
+
+!startsub Cybersource
+box $colorTreasury
+participant Cybersource [
+=<$lock_with_key_security> 
+=Cybersource
+=Gateway
+Visa Inc.
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub CWP
+box $colorCSNAP
+participant CWP [
+=<$web_services> 
+=Constituent
+=with Profile
+ALSAC
+----
+CSNAP
+]
+end box
+!endsub
+
+!startsub DAP 
+box $colorDAP 
+participant DAP [
+=<$users>
+=Donor Account
+=Processing
+ALSAC
+----
+ECC Services/DAP
+]
+end box
+!endsub
+
+!startsub Donor
+box #e4e7eb 
+participant Donor [
+=<$user>
+=Donor
+
+----
+
+]
+end box
+!endsub
+
+!startsub DataFileLoader
+box $colorBIRT
+participant DataFileLoader [
+=<$application_generic> 
+=Data File
+=Loader
+ALSAC
+----
+BIRT
+]
+end box
+!endsub
+
+!startsub DMS
+box box $colorDM
+participant DMS [
+=<$on_premises_server> 
+=DMS
+=CRM
+Blackbaud
+----
+DM
+]
+end box
+!endsub
+
+!startsub DonationPlatform
+box $colorDEX
+participant DonationPlatform [
+=<$on_premises_server> 
+=Donation
+=Platform
+ALSAC
+----
+DEX
+]
+end box
+!endsub
+
+!startsub DonationAPI
+box $colorTRP
+participant DonationAPI [
+=<$web_services> 
+=Donation 
+=API
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+!startsub DonorsBank
+box $colorTreasury
+participant DonorsBank [
+=<$lock_protected> 
+=Donor's 
+=Bank
+Donor's Account Holder
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub Ensenta
+box $colorFRX
+participant Ensenta [
+=<$cloud> 
+=Ensenta
+=Omnichannel
+Jack Henry
+----
+FRX
+]
+end box
+!endsub
+
+
+!startsub ExchangeRoom 
+box $colorCashControl 
+participant ExchangeRoom [
+=<$users> 
+=Exchange 
+=Room
+ALSAC
+----
+Cash Control
+]
+end box
+!endsub
+
+!startsub FHB
+box $colorTreasury
+participant FHB [
+=<$lock_protected> 
+=First 
+=Horizon
+First Horizon Bank
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub FieldSupportStaff
+box #e4e7eb 
+participant FieldSupportStaff [
+=<$user>
+=Field Support
+=Staff
+----
+ALSAC
+]
+end box
+!endsub
+
+
+!startsub FieldSpecialist
+box #e4e7eb 
+participant FieldSpecialist [
+=<$user>
+=Field
+=Specialist
+----
+ALSAC
+]
+end box
+!endsub
+
+
+!startsub LeadStaffMember
+box #e4e7eb 
+participant LeadStaffMember [
+=<$user>
+=Lead Staff
+=Member
+----
+ALSAC
+]
+end box
+!endsub
+
+!startsub HCA
+box $colorTRP
+participant HCA [
+=<$on_premises_server> 
+=Hosted Charge
+=Application
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+!startsub ImportFolder
+box $colorDCC
+participant ImportFolder [
+=<$folder> 
+=Import 
+=Folder
+ALSAC
+----
+DCC
+]
+end box
+!endsub
+
+!startsub IssuingBank
+box $colorTreasury
+participant IssuingBank [
+=<$lock_protected> 
+=Issuing
+=Bank
+Credit Card Issuer
+----
+TREASURY
+]
+end box
+!endsub
+
+
+!startsub LockBox
+box $colorTreasury
+participant LockBox [
+=<$mailbox> 
+=LockBox
+PO Box
+First Horizon Bank
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub Mavro
+box $colorERNI
+participant Mavro [
+=<$3rd_party_mail_server>
+=Mavro
+=MavBridge
+Mavro Imaging
+----
+ERNI
+]
+end box
+!endsub
+
+!startsub MavroOperator
+box $colorERNI
+participant MavroOperator [
+=<$user>
+=Mavro
+=Operator
+Mavro Imaging
+----
+ERNI
+]
+end box
+!endsub
+
+
+!startsub MessageRouter
+box $colorDEX
+participant MessageRouter [
+=<$web_services> 
+=Message
+=Router
+ALSAC
+----
+DEX
+]
+end box
+!endsub
+
+!startsub MitekAPI
+box $colorFRX
+participant MitekAPI [
+=<$3rd_party_service> 
+=Mitek
+=API
+Mitek Systems
+----
+FRX
+]
+end box
+!endsub
+
+!startsub MobileCheckDepositService
+box $colorFRX
+participant MobileCheckDepositService [
+=<$3rd_party_service> 
+=Mobile Check 
+Deposit Service
+----
+FRX
+]
+end box
+!endsub
+
+!startsub MSA
+box $colorCARE
+participant MSA [
+=<$application_generic> 
+=My Supporter
+=Account (MSA)
+ALSAC
+----
+CARE
+]
+end box
+!endsub
+
+!startsub MSAWrapperService
+box $colorCARE
+participant MSAWrapperService [
+=<$application_generic> 
+=MSA Wrapper
+=Service
+ALSAC
+----
+CARE
+]
+end box
+!endsub
+
+!startsub MuleSoft
+box $colorDOC
+participant MuleSoft [
+=<$hybrid_server> 
+=MuleSoft
+SalesForce
+----
+DOC
+]
+end box
+!endsub
+
+!startsub OMS
+box $colorDEX
+participant OMS [
+=<$web_services> 
+=Order Management
+=Service
+ALSAC
+----
+DEX
+]
+end box
+!endsub
+
+
+!startsub PAES
+box $colorTRP
+participant PAES [
+=<$web_services> 
+=Payment Alias
+=Engine Service
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+!startsub PAESAPI
+box $colorTRP
+participant PAESAPI [
+=<$web_services> 
+=PAES 
+=API
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+!startsub Participant
+box #e4e7eb 
+participant Participant [
+=<$user>
+=Participant
+=
+----
+
+]
+end box
+!endsub
+
+!startsub ParticipantCenter
+box $colorFRX
+participant ParticipantCenter [
+=<$cloud> 
+=TeamRaiser
+=Fundraising
+Participant Center UI
+----
+FRX
+]
+end box
+!endsub
+
+
+!startsub PayPal
+box $colorTreasury
+participant PayPal [
+=<$credit_card> 
+=PayPal
+=Braintree
+PayPal
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub Processor
+box $colorTreasury
+participant Processor [
+=<$credit_card> 
+=Card
+=Processor
+e.g., WorldPay & Shift4
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub Raffle
+box $colorTEM
+participant Raffle [
+=<$application_generic> 
+=Raffle
+=DreamHome
+ALSAC
+----
+TEM
+]
+end box
+!endsub
+
+
+!startsub RecurringGiftAPI
+box $colorTRP
+participant RecurringGiftAPI [
+=<$web_services> 
+=Recurring 
+=Gift API
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+
+!startsub RecurringGiftPaymentAPI
+box $colorTRP
+participant RecurringGiftPaymentAPI [
+=<$web_services> 
+=Recurring Gift 
+=Payment API
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+!startsub RPM
+box $colorTRP
+participant RPM [
+=<$web_services> 
+=Realtime
+=Payment APIs
+ALSAC
+----
+TRP
+]
+end box
+!endsub
+
+
+!startsub Shift4
+box $colorTreasury
+participant Shift4 [
+=<$credit_card> 
+=Shift4
+Shift4 Payments
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub SOLID
+box $colorBIRT
+participant SOLID [
+=<$application_generic> 
+=Single Optimized
+=Load to DMS
+ALSAC/SOLID
+----
+BIRT
+]
+end box
+!endsub
+
+!startsub TeamRaiser
+box $colorFRX
+participant TeamRaiser [
+=<$cloud> 
+=TeamRaiser
+=Fundraising
+Blackbaud
+----
+FRX
+]
+end box
+!endsub
+
+!startsub TeleCheck
+box $colorTreasury
+participant TeleCheck [
+=<$document> 
+=TeleCheck
+Fiserv
+----
+TREASURY
+]
+end box
+!endsub
+
+!startsub TSYS
+box $colorTreasury
+participant TSYS [
+=<$credit_card> 
+=TSYS
+Global Payments
+----
+TREASURY
+]
+end box
+!endsub
+
+
+!startsub USPS
+participant USPS [
+=<$mail_user> 
+=USPS
+U.S. Government
+----
+Memphis Post Office
+]
+!endsub
+
+!startsub Website
+box $colorDEX
+participant Website [
+=<$website> 
+=St.Jude
+=Website
+ALSAC
+----
+DEX
+]
+end box
+!endsub
+
+
+
+!startsub Worldpay
+box $colorTreasury
+participant Worldpay [
+=<$credit_card> 
+=Worldpay
+==Formerly Vantiv
+Worldpay Inc.
+----
+TREASURY
+]
+end box
+!endsub
+
+
+
+!startsub APPDB
+box $colorDBOPS
+participant APPDB [
+=<$database_mini_1> 
+=APPDB
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub ACHDB
+box $colorDBOPS
+participant ACHDB [
+=<$database_mini_1> 
+=TPESQL
+=ACH
+ALSAC
+----
+DBOPS
+]
+!endsub
+end box
+
+!startsub APPLEPAYDB
+box $colorDBOPS
+participant APPLEPAYDB [
+=<$database_mini_1> 
+=TPESQL
+=APPLEPAY
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub CARDPAYMENTDB
+box $colorDBOPS
+participant CARDPAYMENTDB [
+=<$database_mini_1> 
+=TPESQL
+=CARDPAYMENT
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub DATAETL
+box $colorDBOPS
+participant DATAETL [
+=<$database_mini_1> 
+=DATAETLSQL
+
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub DB
+box $colorDBOPS
+participant DB [
+=<$database_mini_1> 
+=DB
+=GENERIC
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub DMSSQL
+box $colorDBOPS
+participant DMSSQL [
+=<$database_mini_1> 
+=DMSSQL
+=DMS Schema
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub DATASTORE
+box $colorDBOPS
+participant DATASTORE [
+=<$database_mini_1> 
+=DATADB
+=DATASTORE
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub DMSStage
+box $colorDBOPS
+participant DMSStage [
+=<$database_mini_1> 
+=DMS Stage
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+
+!startsub EHASQL
+box $colorDBOPS
+participant EHASQL [
+=<$database_mini_1> 
+=Raffle DB
+=EHASQL
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub EVTSQL
+box $colorDBOPS
+participant EVTSQL [
+=<$database_mini_1> 
+=EVTSQL
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+
+!startsub EVM
+box $colorDBOPS
+participant EVM [
+=<$database_mini_1> 
+=EVTSQL
+=EVM
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub GOOGLEPAYDB
+box $colorDBOPS
+participant GOOGLEPAYDB [
+=<$database_mini_1> 
+=TPESQL
+=GOOGLEPAY
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub INTDB
+box $colorDBOPS
+participant INTDB [
+=<$database_mini_1> 
+=INT
+=DB
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+
+!startsub OIMtoDMS
+box $colorDOC
+participant OIMtoDMS [
+=<$database_mini_1> 
+=OIM to DMS RTP
+=RTP Queue 
+=<font size=10> (Service Broker)
+ALSAC
+----
+DOC
+]
+end box
+!endsub
+
+
+!startsub MDM
+box $colorDBOPS
+participant MDM [
+=<$database_mini_1> 
+=MDM
+=DB
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+
+!startsub MSADB
+box $colorDBOPS
+participant MSADB [
+=<$database_mini_1> 
+=MSA
+=DB
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub PAYPALDB
+box $colorDBOPS
+participant PAYPALDB [
+=<$database_mini_1> 
+=TPESQL
+=PAYPAL
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub VENMODB
+box $colorDBOPS
+participant VENMODB [
+=<$database_mini_1> 
+=TPESQL
+=VENMO
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub TPESQL
+box $colorDBOPS
+participant TPESQL [
+=<$database_mini_1> 
+=TPESQL
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+!startsub TPEStagingDB
+box $colorDBOPS
+participant TPEStagingDB [
+=<$database_mini_1> 
+=TPE Staging
+ALSAC
+----
+DBOPS
+]
+end box
+!endsub
+
+@enduml

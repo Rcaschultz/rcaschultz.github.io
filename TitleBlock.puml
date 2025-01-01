@@ -1,0 +1,6 @@
+!$filename = %filename()
+!$date = %date()
+right header
+=%filename()
+<font size=20>%date()
+endheader

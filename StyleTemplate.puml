@@ -1,0 +1,60 @@
+@startuml
+'Plant UML Reference Manual: 
+'  https://pdf.plantuml.net/1.2023.11/PlantUML_Language_Reference_Guide_en.pdf
+' Comment regarding this flow
+!pragma teoz true
+' See gallery of themes at: 
+'   https://the-lum.github.io/puml-themes-gallery/
+'!theme blueprint
+skinparam BackgroundColor white
+skinparam defaultFontName Arial
+skinparam NoteTextAlignment left
+skinparam ParticipantBackgroundColor white
+skinparam NoteBackgroundColor white
+skinparam ParticipantPadding 40
+skinparam SequenceGroupFontSize 25
+skinparam HeaderFontSize 25
+' Include the icons here
+!define ICONURL https://raw.githubusercontent.com/Roemer/plantuml-office/master/office2014
+!includeurl ICONURL/Clouds/cloud.puml
+!includeurl ICONURL/Concepts/application_generic.puml
+!includeurl ICONURL/Concepts/credit_card.puml
+!includeurl ICONURL/Concepts/document.puml
+!includeurl ICONURL/Concepts/documents.puml
+!includeurl ICONURL/Concepts/folder.puml
+!includeurl ICONURL/Concepts/mailbox.puml
+!includeurl ICONURL/Concepts/web_services.puml
+!includeurl ICONURL/Databases/database_mini_1.puml
+!includeurl ICONURL/Security/lock_protected.puml
+!includeurl ICONURL/Security/lock_with_key_security.puml
+!includeurl ICONURL/Servers/3rd_party_mail_server.puml
+!includeurl ICONURL/Servers/hybrid_server.puml
+!includeurl ICONURL/Servers/on_premises_server.puml
+!includeurl ICONURL/Services/3rd_party_service.puml
+!includeurl ICONURL/Services/federation_service.puml
+!includeurl ICONURL/Sites/website.puml
+!includeurl ICONURL/Users/mail_user.puml
+!includeurl ICONURL/Users/user.puml
+!includeurl ICONURL/Users/users.puml
+
+!$colorALSAC = "#e4e7eb"
+!$colorAM = "#LightBlue"
+!$colorBIRT ="#fff600"
+!$colorCARE = "#ffc0cb"
+!$colorCashControl = "#ff4122" 
+!$colorCSNAP ="#90E0EF"
+!$colorDAP = "#ff8164"
+!$colorDBOPS = "#b0bec5"
+!$colorDCC = "#b0bec5"
+!$colorDEX = "#fd8b8b"
+!$colorDM = "#f9ddb1"
+!$colorDOC = "#b0bec5"
+!$colorDONOR = "#e4e7eb"
+!$colorERNI = "#f7f5bc"
+!$colorFRX ="#cde2fc"
+!$colorRELY = "#b0bec5"
+!$colorTEM = "#C0C0C0"
+!$colorTreasury = "#cefad0"
+!$colorTRP = "#fff77d"
+
+@enduml
